@@ -1,0 +1,4 @@
+PackageAuthor=[TheLovinator](https://github.com/TheLovinator1/docker-alpine-sonarr)
+UpdateMethod=External
+UpdateMethodMessage=flag Update your Docker container or make an [issue on GitHub](https://github.com/TheLovinator1/docker-alpine-sonarr/issues).
+Branch=develop

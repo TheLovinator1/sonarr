@@ -1,0 +1,15 @@
+services:
+  sonarr:
+    # image: sonarr
+    build: .
+    restart: unless-stopped
+    ports:
+      - "8989:8989"
+    volumes:
+      - downloads:/download
+      - logs:/var/lib/sonarr/logs/
+      - data:/var/lib/sonarr
+volumes:
+  downloads:
+  logs:
+  data:
