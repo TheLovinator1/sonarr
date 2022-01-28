@@ -6,10 +6,8 @@ services:
     ports:
       - "8989:8989"
     volumes:
-      - downloads:/download
-      - logs:/var/lib/sonarr/logs/
+      - downloads:/downloads
       - data:/var/lib/sonarr
 volumes:
   downloads:
-  logs:
   data:
