@@ -8,7 +8,7 @@ RUN addgroup -g 1000 sonarr && \
     adduser -u 1000 -Hh /var/lib/sonarr -G sonarr -s /sbin/nologin -D sonarr && \
     install -d -o sonarr -g sonarr -m 775 /var/lib/sonarr /usr/lib/sonarr/bin /tmp/sonarr /downloads
 
-RUN apk add -U --upgrade --no-cache libmediainfo sqlite-libs ca-certificates 
+RUN apk add --no-cache libmediainfo sqlite-libs ca-certificates 
 RUN apk add mono --no-cache --repository=https://ftp.acc.umu.se/mirror/alpinelinux.org/edge/testing/
 
 ADD package_info /tmp/sonarr
