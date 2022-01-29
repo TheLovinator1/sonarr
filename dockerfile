@@ -15,8 +15,8 @@ ADD package_info /tmp/sonarr
 
 WORKDIR /tmp/sonarr
 
-RUN wget "${source}" && \ 
-    tar -xf "Sonarr.develop.${pkgver}.linux.tar.gz" -C /tmp/sonarr && \
+RUN wget "${source}" -O "Sonarr.develop.${pkgver}.linux.tar.gz"
+RUN tar -xf "Sonarr.develop.${pkgver}.linux.tar.gz" -C /tmp/sonarr && \
     rm "Sonarr.develop.${pkgver}.linux.tar.gz" && \
     rm -rf "Sonarr/Sonarr.Update" && \
     install -d -m 755 "/usr/lib/sonarr/bin" && \
