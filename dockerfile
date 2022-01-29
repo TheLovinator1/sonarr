@@ -32,4 +32,6 @@ WORKDIR /var/lib/sonarr
 EXPOSE 8989
 VOLUME ["/downloads", "/var/lib/sonarr"]
 
+USER sonarr
+
 CMD [ "mono", "--debug", "/usr/lib/sonarr/bin/Sonarr.exe", "-nobrowser", "-data=/var/lib/sonarr"]
