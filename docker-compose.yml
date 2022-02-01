@@ -1,6 +1,6 @@
 services:
   sonarr:
-    container_name: alpine-sonarr
+    container_name: arch-sonarr
     # image: sonarr
     build: .
     restart: unless-stopped
