@@ -27,8 +27,8 @@ You want to pass /media to the container. If you use two different volumes hardl
 
 ## Images
 
-![Screenshot 1](img\sonarr-screenshot1.jpg)
-![Screenshot 2](img\sonarr-screenshot2.jpg)
+![Screenshot 1](img/sonarr-screenshot1.jpg)
+![Screenshot 2](img/sonarr-screenshot2.jpg)
 
 ## Need help?
 
