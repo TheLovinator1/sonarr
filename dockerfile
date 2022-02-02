@@ -43,8 +43,6 @@ RUN tar -xf "Sonarr.develop.${pkgver}.linux.tar.gz" -C /tmp/sonarr && \
     pacman -Rs --noconfirm wget && \
     rm -rf /var/cache/*
 
-
-
 WORKDIR /var/lib/sonarr
 
 EXPOSE 8989
