@@ -22,7 +22,7 @@ RUN echo "en_US.UTF-8 UTF-8" > "/etc/locale.gen" && locale-gen && echo "LANG=en_
 # https://linux.die.net/man/8/groupadd
 RUN groupadd --gid 1000 --system sonarr && \
     useradd --system --uid 1000 --gid 1000 sonarr && \
-    install -d -o sonarr -g sonarr -m 775 /var/lib/sonarr /usr/lib/sonarr/bin /tmp/sonarr /downloads
+    install -d -o sonarr -g sonarr -m 775 /var/lib/sonarr /usr/lib/sonarr/bin /tmp/sonarr /media
 
 # Update the system and install depends
 RUN pacman -Syu --noconfirm && pacman -S mono libmediainfo sqlite wget --noconfirm
@@ -39,7 +39,7 @@ RUN tar -xf "Sonarr.develop.${pkgver}.linux.tar.gz" -C /tmp/sonarr && \
     install -D -m 644 "package_info" "/usr/lib/sonarr" && \
     echo "PackageVersion=${pkgver}" >> "/usr/lib/sonarr/package_info" && \
     rm -rf "/tmp/sonarr" && \
-    chown -R sonarr:sonarr /var/lib/sonarr /usr/lib/sonarr /downloads && \
+    chown -R sonarr:sonarr /var/lib/sonarr /usr/lib/sonarr /media && \
     pacman -Rs --noconfirm wget && \
     rm -rf /var/cache/*
 
@@ -48,7 +48,7 @@ RUN tar -xf "Sonarr.develop.${pkgver}.linux.tar.gz" -C /tmp/sonarr && \
 WORKDIR /var/lib/sonarr
 
 EXPOSE 8989
-VOLUME ["/downloads", "/var/lib/sonarr"]
+VOLUME ["/media", "/var/lib/sonarr"]
 
 USER sonarr
 
