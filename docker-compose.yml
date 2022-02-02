@@ -7,8 +7,7 @@ services:
     ports:
       - "8989:8989"
     volumes:
-      - downloads:/downloads
+      - /mnt/wd_white/downloads:/media
       - data:/var/lib/sonarr
 volumes:
-  downloads:
   data:
