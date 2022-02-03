@@ -15,14 +15,14 @@ RUN gpg --refresh-keys && pacman-key --init && pacman-key --populate archlinux
 
 # Set locale. Needed for some programs.
 # https://wiki.archlinux.org/title/locale
-RUN echo "en_US.UTF-8 UTF-8" > "/etc/locale.gen" && locale-gen && echo "LANG=en_US.UTF-8" > "/etc/locale.conf"
+RUN echo "en_US.UTF-8 UTF-8" >"/etc/locale.gen" && locale-gen && echo "LANG=en_US.UTF-8" >"/etc/locale.conf"
 
 # Create a new user with id 1000 and name "sonarr".
 # https://linux.die.net/man/8/useradd
 # https://linux.die.net/man/8/groupadd
 RUN groupadd --gid 1000 --system sonarr && \
-    useradd --system --uid 1000 --gid 1000 sonarr && \
-    install -d -o sonarr -g sonarr -m 775 /var/lib/sonarr /usr/lib/sonarr/bin /tmp/sonarr /media
+useradd --system --uid 1000 --gid 1000 sonarr && \
+install -d -o sonarr -g sonarr -m 775 /var/lib/sonarr /usr/lib/sonarr/bin /tmp/sonarr /media
 
 # Update the system and install depends
 RUN pacman -Syu --noconfirm && pacman -S mono libmediainfo sqlite wget --noconfirm
@@ -33,15 +33,15 @@ WORKDIR /tmp/sonarr
 
 RUN wget "${source}" -O "Sonarr.develop.${pkgver}.linux.tar.gz"
 RUN tar -xf "Sonarr.develop.${pkgver}.linux.tar.gz" -C /tmp/sonarr && \
-    rm "Sonarr.develop.${pkgver}.linux.tar.gz" && \
-    rm -rf "Sonarr/Sonarr.Update" && \
-    cp -dpr "Sonarr/." "/usr/lib/sonarr/bin" && \
-    install -D -m 644 "package_info" "/usr/lib/sonarr" && \
-    echo "PackageVersion=${pkgver}" >> "/usr/lib/sonarr/package_info" && \
-    rm -rf "/tmp/sonarr" && \
-    chown -R sonarr:sonarr /var/lib/sonarr /usr/lib/sonarr /media && \
-    pacman -Rs --noconfirm wget && \
-    rm -rf /var/cache/*
+rm "Sonarr.develop.${pkgver}.linux.tar.gz" && \
+rm -rf "Sonarr/Sonarr.Update" && \
+cp -dpr "Sonarr/." "/usr/lib/sonarr/bin" && \
+install -D -m 644 "package_info" "/usr/lib/sonarr" && \
+echo "PackageVersion=${pkgver}" >>"/usr/lib/sonarr/package_info" && \
+rm -rf "/tmp/sonarr" && \
+chown -R sonarr:sonarr /var/lib/sonarr /usr/lib/sonarr /media && \
+pacman -Rs --noconfirm wget && \
+rm -rf /var/cache/*
 
 WORKDIR /var/lib/sonarr
 
