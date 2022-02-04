@@ -2,7 +2,6 @@ FROM archlinux
 # TODO: Check https://services.sonarr.tv/v1/releases instead of hardcoded version
 
 ARG pkgver="3.0.6.1451"
-ARG source="https://download.sonarr.tv/v3/develop/${pkgver}/Sonarr.develop.${pkgver}.linux.tar.gz"
 
 # Add mirrors for Sweden. You can add your own mirrors to the mirrorlist file. Should probably use reflector.
 ADD mirrorlist /etc/pacman.d/mirrorlist
@@ -25,13 +24,14 @@ useradd --system --uid 1000 --gid 1000 sonarr && \
 install -d -o sonarr -g sonarr -m 775 /var/lib/sonarr /usr/lib/sonarr/bin /tmp/sonarr /media
 
 # Update the system and install depends
-RUN pacman -Syu --noconfirm && pacman -S mono libmediainfo sqlite wget --noconfirm
+RUN pacman -Syu --noconfirm && pacman -S mono libmediainfo sqlite --noconfirm
 
 ADD package_info /tmp/sonarr
 
 WORKDIR /tmp/sonarr
 
-RUN wget "${source}" -O "Sonarr.develop.${pkgver}.linux.tar.gz"
+# Download and extract the package
+ADD "https://download.sonarr.tv/v3/develop/${pkgver}/Sonarr.develop.${pkgver}.linux.tar.gz" "/tmp/sonarr/Sonarr.develop.${pkgver}.linux.tar.gz"
 RUN tar -xf "Sonarr.develop.${pkgver}.linux.tar.gz" -C /tmp/sonarr && \
 rm "Sonarr.develop.${pkgver}.linux.tar.gz" && \
 rm -rf "Sonarr/Sonarr.Update" && \
@@ -40,7 +40,6 @@ install -D -m 644 "package_info" "/usr/lib/sonarr" && \
 echo "PackageVersion=${pkgver}" >>"/usr/lib/sonarr/package_info" && \
 rm -rf "/tmp/sonarr" && \
 chown -R sonarr:sonarr /var/lib/sonarr /usr/lib/sonarr /media && \
-pacman -Rs --noconfirm wget && \
 rm -rf /var/cache/*
 
 WORKDIR /var/lib/sonarr
