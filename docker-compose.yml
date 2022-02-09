@@ -1,6 +1,6 @@
 services:
   sonarr:
-    container_name: arch-sonarr
+    container_name: sonarr
     image: ghcr.io/thelovinator1/sonarr:master
     # build: .
     restart: unless-stopped
