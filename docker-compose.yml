@@ -1,8 +1,8 @@
 services:
   sonarr:
     container_name: arch-sonarr
-    # image: sonarr
-    build: .
+    image: ghcr.io/thelovinator1/sonarr:master
+    # build: .
     restart: unless-stopped
     ports:
       - "8989:8989"
