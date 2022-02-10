@@ -32,8 +32,8 @@ RUN echo "en_US.UTF-8 UTF-8" >"/etc/locale.gen" && locale-gen && echo "LANG=en_U
 # Also create folder that we will use later.
 # https://linux.die.net/man/8/useradd
 # https://linux.die.net/man/8/groupadd
-RUN groupadd --gid 1000 --system sonarr && \
-useradd --system --uid 1000 --gid 1000 sonarr && \
+RUN groupadd --gid 1000 sonarr && \
+useradd --uid 1000 --gid 1000 sonarr && \
 install -d -o sonarr -g sonarr -m 775 /var/lib/sonarr /usr/lib/sonarr/bin /tmp/sonarr /media
 
 # Update the system and install depends
