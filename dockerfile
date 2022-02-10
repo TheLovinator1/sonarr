@@ -13,7 +13,7 @@ org.opencontainers.image.description="Sonarr will monitor RSS feeds for new epis
 org.opencontainers.image.base.name="docker.io/library/archlinux"
 
 # Sonarr version
-ARG pkgver="3.0.6.1451"
+ARG pkgver="3.0.6.1457"
 
 # Add mirrors for Sweden. You can add your own mirrors to the mirrorlist file. Should probably use reflector.
 ADD mirrorlist /etc/pacman.d/mirrorlist
