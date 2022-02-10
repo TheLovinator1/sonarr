@@ -1,6 +1,17 @@
 FROM archlinux
 # TODO: Check https://services.sonarr.tv/v1/releases instead of hardcoded version
 
+# https://github.com/opencontainers/image-spec/blob/main/annotations.md#pre-defined-annotation-keys
+LABEL org.opencontainers.image.authors="Joakim Hellsén <tlovinator@gmail.com>" \ 
+org.opencontainers.image.url="https://github.com/TheLovinator1/docker-arch-sonarr" \
+org.opencontainers.image.documentation="https://github.com/TheLovinator1/docker-arch-sonarr" \
+org.opencontainers.image.source="https://github.com/TheLovinator1/docker-arch-sonarr" \
+org.opencontainers.image.vendor="Joakim Hellsén" \
+org.opencontainers.image.license="GPL-3.0+" \
+org.opencontainers.image.title="Sonarr" \
+org.opencontainers.image.description="Sonarr will monitor RSS feeds for new episodes of your favorite shows and download them" \
+org.opencontainers.image.base.name="docker.io/library/archlinux"
+
 # Sonarr version
 ARG pkgver="3.0.6.1451"
 
