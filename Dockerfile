@@ -1,5 +1,5 @@
 FROM archlinux
-# TODO: Check https://services.sonarr.tv/v1/releases instead of hardcoded version
+# TODO: #5 Check https://services.sonarr.tv/v1/releases instead of hardcoded version
 
 # https://github.com/opencontainers/image-spec/blob/main/annotations.md#pre-defined-annotation-keys
 LABEL org.opencontainers.image.authors="Joakim Hellsén <tlovinator@gmail.com>" \
