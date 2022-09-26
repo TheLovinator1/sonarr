@@ -1,3 +1,8 @@
+# Don't use this :-)
+
+Better containers are out there, you should use [linuxserver/sonarr](https://github.com/linuxserver/docker-sonarr)
+instead.
+
 # Sonarr
 
 Sonarr is a PVR for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new episodes of your favorite
