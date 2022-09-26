@@ -7,7 +7,7 @@ on:
     # Only build if master branch
     branches: [ master ]
 env:
-  # Needed for login to GitHub Container Registry
+  # Needed for GitHub Container Registry
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
