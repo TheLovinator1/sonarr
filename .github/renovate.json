@@ -1,0 +1,39 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": [
+        "^Dockerfile$"
+      ],
+      "matchStrings": [
+        "ARG pkgver=(?<currentValue>.*?)\\n"
+      ],
+      "depNameTemplate": "Sonarr/Sonarr",
+      "datasourceTemplate": "github-releases"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest",
+        "lockFileMaintenance"
+      ],
+      "automerge": true,
+      "automergeType": "branch",
+      "platformAutomerge": true
+    }
+  ],
+  "dependencyDashboard": false,
+  "enabledManagers": [
+    "dockerfile",
+    "docker-compose",
+    "github-actions",
+    "regex"
+  ],
+  "timezone": "Europe/Stockholm"
+}
