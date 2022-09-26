@@ -1,8 +1,5 @@
 name: Docker
 on:
-  schedule:
-    # Runs at 06:23 UTC every day. This is 07:23 CET
-    - cron: "23 6 * * *"
   push:
     # Only build if master branch
     branches: [ master ]
