@@ -30,7 +30,7 @@ You want to pass /media to the container. If you use two different volumes hardl
 ## Ports
 
 | Port     | Description | Required |
-| -------- | ----------- | -------- |
+|----------|-------------|----------|
 | 8989/tcp | Web ui      | Yes      |
 
 ## Images
@@ -42,5 +42,4 @@ You want to pass /media to the container. If you use two different volumes hardl
 
 - Email: [tlovinator@gmail.com](mailto:tlovinator@gmail.com)
 - Discord: TheLovinator#9276
-- Steam: [TheLovinator](https://steamcommunity.com/id/TheLovinator/)
-- Send an issue: [docker-arch-sonarr/issues](https://github.com/TheLovinator1/docker-arch-sonarr/issues)
+- Send an issue: [docker-arch-sonarr/issues](https://github.com/TheLovinator1/sonarr/issues)
