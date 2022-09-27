@@ -1,8 +1,10 @@
 name: Docker
 on:
   push:
-    # Only build if master branch
     branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
 env:
   # Needed for GitHub Container Registry
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
