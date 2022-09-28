@@ -24,7 +24,7 @@
         "lockFileMaintenance"
       ],
       "automerge": true,
-      "automergeType": "branch",
+      "automergeType": "pr",
       "platformAutomerge": true
     }
   ],
